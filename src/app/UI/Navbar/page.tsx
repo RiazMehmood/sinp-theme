@@ -1,6 +1,6 @@
 import Image from "next/image";
-import {GoSearch} from "react-icons/go"
-import {SlBag, SlSettings} from "react-icons/sl"
+import { GoSearch } from "react-icons/go";
+import { SlBag, SlSettings } from "react-icons/sl";
 import logo from "../../../../public/logo.webp";
 
 const Navbar = () => {
@@ -20,7 +20,17 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className="flex space-x-4 text-md"><GoSearch/><SlBag/>$245<SlSettings/></div>
+      <div className="flex space-x-4 items-center text-[20px] mr-4">
+        <GoSearch />
+        <div className="relative">
+          <SlBag />
+          <div className="absolute -right-1.5 -top-3 text-[15px] bg-black w-5 h-5 flex items-center justify-center font-bold text-white rounded-full">
+            4
+          </div>
+        </div>
+        <p className="font-bold">$245</p>
+        <SlSettings />
+      </div>
     </div>
   );
 };

@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="{inter.className} max-w-screen-2xl bg-slate-300 mx-auto px-4 md:px-10 2xl:px-24 py-6 lg:py-2"><Navbar/>{children}</body>
+      <body className="{inter.className} max-w-screen-2xl bg-white mx-auto px-4 md:px-10 2xl:px-24 py-6 lg:py-0"><Navbar/>{children}</body>
     </html>
   )
 }
