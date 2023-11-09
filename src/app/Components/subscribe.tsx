@@ -19,7 +19,7 @@ export default function SubscribeComponent() {
       </div>
 
       {/* Social buttons */}
-      <div className="flex mt-4 space-x-6">
+      <div className="flex mt-4 mb-6 space-x-6">
         <SlSocialFacebook size={24}/>
         <SlSocialTwitter size={24}/>
         <SlSocialInstagram size={24}/>
