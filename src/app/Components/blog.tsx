@@ -66,7 +66,7 @@ export default function BlogComponent() {
   };
 
   return (
-    <div className="flex mb-10 justify-center">
+    <div className="flex mb-10 mt-10 justify-center">
       <div className="p-4 w-full max-w-6xl">
         <h2 className="text-4xl text-orange-500 font-bold text-center mb-2">Latest Blog</h2>
         <p className="text-gray-800 mb-10 text-md text-center">There are many variations of passages of Lorem</p>
