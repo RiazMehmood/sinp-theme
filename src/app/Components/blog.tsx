@@ -1,8 +1,16 @@
 "use client";
 import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import { CSSProperties, useRef } from 'react';
+
+interface ArrowProps {
+  className?: string;
+  style?: CSSProperties;
+  onClick?: () => void;
+}
+
 
 export default function BlogComponent() {
   const blogs = [
@@ -40,32 +48,46 @@ export default function BlogComponent() {
       }
     // Add more blog objects here...
   ]
+  
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    const scrollAmount = 500;
+    if (scrollContainerRef.current) {
+      const newPosition =
+        direction === 'left'
+          ? Math.max(0, scrollContainerRef.current.scrollLeft - scrollAmount)
+          : scrollContainerRef.current.scrollLeft + scrollAmount;
+      scrollContainerRef.current.scrollTo({
+        left: newPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex mb-10 justify-center">
       <div className="p-4 w-full max-w-6xl">
         <h2 className="text-4xl text-orange-500 font-bold text-center mb-2">Latest Blog</h2>
         <p className="text-gray-800 mb-10 text-md text-center">There are many variations of passages of Lorem</p>
 
-        <Swiper
-          spaceBetween={40}
-          slidesPerView={3}
-          navigation
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
-        >
-          {blogs.map(blog => (
-            <SwiperSlide key={blog.id}>
-              <div className="border rounded-md mt-6 p-6">
-                <Image src={blog.imageUrl} alt={blog.title} width={500} height={300} layout='responsive' />
-                <h3 className="text-xl font-semibold mt-6">{blog.title}</h3>
-                <p className="text-gray-500 mt-4">{blog.date}   \   {blog.comments} comments</p>
-                <p className="mt-2">{blog.description}</p>
-                <button className="mt-4 px-4 py-2 text-gray-800 hover:bg-orange-500 hover:text-white font-semibold border rounded">Blog Details</button>
+        <div className="flex items-center justify-center">
+          <button className='border hover:border-orange-500 hover:text-orange-500 rounded-full text-2xl px-3 py-1' onClick={() => handleScroll('left')}>&lt;</button>
+          <div ref={scrollContainerRef} className="overflow-x-scroll whitespace-nowrap flex-1 scroll-smooth mx-2 hide-scrollbar" style={{ scrollBehavior: 'smooth' }}>
+            {blogs.map(blog => (
+              <div key={blog.id} className="border rounded-md mt-6 p-6 m-4 inline-block max-w-xs">
+              <div className="relative overflow-hidden">
+                <Image className="transition-transform duration-500 ease-in-out transform hover:scale-110" src={blog.imageUrl} alt={blog.title} width={400} height={240} layout='responsive' />
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              <h3 className="text-xl font-semibold hover:text-orange-500 cursor-pointer mt-6">{blog.title}</h3>
+              <p className="text-gray-500 mt-4">{blog.date}   \   {blog.comments} comments</p>
+              <p className="mt-2">{blog.description}</p>
+              <button className="mt-4 mb-2 px-4 py-2 text-gray-800 hover:bg-orange-500 hover:text-white font-semibold border rounded">Blog Details</button>
+            </div>
+            ))}
+          </div>
+          <button className='border rounded-full text-2xl px-3 py-1 hover:border-orange-500 hover:text-orange-500' onClick={() => handleScroll('right')}>&gt;</button>
+        </div>
       </div>
     </div>
   )
