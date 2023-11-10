@@ -1,8 +1,5 @@
 "use client";
 import Image from 'next/image'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 import { CSSProperties, useRef } from 'react';
 
 interface ArrowProps {
@@ -52,7 +49,7 @@ export default function BlogComponent() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: 'left' | 'right') => {
-    const scrollAmount = 500;
+    const scrollAmount = scrollContainerRef.current?.clientWidth || 0; // Scroll by the width of the container
     if (scrollContainerRef.current) {
       const newPosition =
         direction === 'left'
@@ -67,15 +64,16 @@ export default function BlogComponent() {
 
   return (
     <div className="flex mb-10 mt-10 justify-center">
-      <div className="p-4 w-full max-w-6xl">
-        <h2 className="text-4xl text-orange-500 font-bold text-center mb-2">Latest Blog</h2>
-        <p className="text-gray-800 mb-10 text-md text-center">There are many variations of passages of Lorem</p>
+      <div className="p-4 w-full max-w-screen-xl">
+        <h2 className="text-5xl text-orange-500 font-bold text-center mb-4">Latest Blog</h2>
+        <p className="text-gray-800 mb-10 text-lg text-center">There are many variations of passages of Lorem</p>
 
         <div className="flex items-center justify-center">
           <button className='border hover:border-orange-500 hover:text-orange-500 rounded-full text-2xl px-3 py-1' onClick={() => handleScroll('left')}>&lt;</button>
           <div ref={scrollContainerRef} className="overflow-x-scroll whitespace-nowrap flex-1 scroll-smooth mx-2 hide-scrollbar" style={{ scrollBehavior: 'smooth' }}>
             {blogs.map(blog => (
-              <div key={blog.id} className="border rounded-md mt-6 p-6 m-4 inline-block max-w-xs">
+              <div key={blog.id} className="border rounded-md mt-6 p-6 m-4 inline-block sm:max-w-md md:max-w-sm lg:max-w-sm xl:max-w-sm"> {/* Adjust the width of the card on larger screens */}
+              {/* Add responsive classes to control the width of the card on different screen sizes */}
               <div className="relative overflow-hidden">
                 <Image className="transition-transform duration-500 ease-in-out transform hover:scale-110" src={blog.imageUrl} alt={blog.title} width={400} height={240} layout='responsive' />
               </div>
