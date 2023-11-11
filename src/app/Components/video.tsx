@@ -10,7 +10,7 @@ export default function VideoComponent() {
     };
   
     return (
-      <div className="relative h-screen"> {/* Set a defined height */}
+      <div className="relative mt-28 h-screen"> {/* Set a defined height */}
         {!isPlaying && (
           <div className='absolute inset-0' style={{backgroundImage: "url('/video-bg.webp')", zIndex:"10", backgroundSize: 'cover', backgroundPosition: 'center'}}>
             {/* Check the path of your image */}
