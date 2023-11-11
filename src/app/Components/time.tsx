@@ -109,12 +109,12 @@ export default function CountdownComponent() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-3 h-screen">
+    <div className="flex flex-col items-center mt-14 justify-center gap-3 h-screen">
       <div className="flex flex-col gap-5 mb-16">
-        <h1 className="text-orange-500 text-4xl font-bold text-center">
+        <h1 className="text-orange-500 text-5xl font-bold text-center">
           Deal Collection
         </h1>
-        <p className="text-center text-base font-medium">
+        <p className="text-center text-lg font-medium">
           There are many variations of passages of Lorem
         </p>
       </div>
