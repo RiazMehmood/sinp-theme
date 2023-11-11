@@ -1,12 +1,6 @@
 "use client";
 import Image from 'next/image'
-import { CSSProperties, useRef } from 'react';
-
-interface ArrowProps {
-  className?: string;
-  style?: CSSProperties;
-  onClick?: () => void;
-}
+import {useRef } from 'react';
 
 
 export default function BlogComponent() {
