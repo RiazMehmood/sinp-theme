@@ -105,7 +105,7 @@ export default function ProductBox({ product }: { product: Product }) {
 
 
       </div>
-      <div className="w-full p-4 mt-4">
+      <div className="w-full p-4 mt-2">
         <div className="flex justify-between">
           <div>
             Sold:{" "}
@@ -125,7 +125,7 @@ export default function ProductBox({ product }: { product: Product }) {
           ></div>
         </div>
       </div>
-      <h2 className="mt-4 text-lg px-4 text-gray-800 cursor-pointer hover:text-orange-500 font-normal">
+      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-orange-500 font-normal">
         {product.name}
       </h2>
       <div className="flex px-4 gap-1 pb-4">
