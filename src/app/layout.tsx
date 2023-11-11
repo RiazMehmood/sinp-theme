@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 import "./globals.css";
 import Navbar from "./Navbar/page";
 import Footer from "./Components/footer";
 
 
-const inter = Inter({ subsets: ["latin"], weight: "400" });
-const poppins = Poppins({ subsets: ["latin"], weight: "400" });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
 
 export const metadata: Metadata = {
   title: "Sinp-Templete",
@@ -21,12 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="{inter.className} {poppins.className} max-w-screen-2xl bg-white mx-auto font-poppins text-dark text-sm leading-loose">
-        {/* <Navbar/> */}
-        <Navbar/>
+      <body className=" {poppins.className} max-w-screen-2xl bg-white mx-auto text-dark">
+        <Navbar />
         {children}
-
-
         {/* <Footer/>*/}
         <Footer/>
       </body>

@@ -2,14 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
-    .is-sticky .main-menu .main-menu__item > a {
-        display: block;
-        padding-top: 1.25rem;
-        padding-bottom: 1.25rem;
-    }
-    /* ... */
-  }
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -18,4 +12,4 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
