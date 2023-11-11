@@ -1,7 +1,12 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import ProductBox from "../Components/products";
+import { Playfair_Display } from "next/font/google";
 
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+});
 export default function CountdownComponent() {
   const products = [
     {
@@ -11,6 +16,17 @@ export default function CountdownComponent() {
       name: "Product 1",
       price: 110.0,
       discountedPrice: 130.0,
+      variations: [
+        { 
+          type: "variety", 
+          options: [
+            { value: "hp", image: "/product1-sm.webp" },
+            { value: "box", image: "/product2-sm.webp" },
+            { value: "case", image: "/product4-sm.webp" },
+            { value: "case", image: "/product5-sm.webp" },
+          ]
+        },
+      ],
     },
     {
       image: "/product2.webp",
@@ -19,6 +35,17 @@ export default function CountdownComponent() {
       name: "Product 2",
       price: 110.0,
       discountedPrice: 130.0,
+      variations: [
+        { 
+          type: "variety", 
+          options: [
+            { value: "hp", image: "/product1-sm.webp" },
+            { value: "box", image: "/product2-sm.webp" },
+            { value: "case", image: "/product3-sm.webp" },
+
+          ]
+        },
+      ],
     },
     {
       image: "/product3.webp",
@@ -27,6 +54,18 @@ export default function CountdownComponent() {
       name: "Product 3",
       price: 110.0,
       discountedPrice: 130.0,
+      variations: [
+        { 
+          type: "variety", 
+          options: [
+            { value: "hp", image: "/product1-sm.webp" },
+            { value: "box", image: "/product2-sm.webp" },
+            { value: "case", image: "/product3-sm.webp" },
+            { value: "case", image: "/product4-sm.webp" },
+            { value: "case", image: "/product5-sm.webp" },
+          ]
+        },
+      ],
     },
     {
       image: "/product4.webp",
@@ -35,6 +74,18 @@ export default function CountdownComponent() {
       name: "Product 4",
       price: 110.0,
       discountedPrice: 130.0,
+      variations: [
+        { 
+          type: "variety", 
+          options: [
+            { value: "hp", image: "/product1-sm.webp" },
+            { value: "box", image: "/product2-sm.webp" },
+            { value: "case", image: "/product3-sm.webp" },
+            { value: "case", image: "/product4-sm.webp" },
+            { value: "case", image: "/product5-sm.webp" },
+          ]
+        },
+      ],
     },
     {
       image: "/product5.webp",
@@ -43,9 +94,23 @@ export default function CountdownComponent() {
       name: "Product 5",
       price: 110.0,
       discountedPrice: 130.0,
+      variations: [
+        { 
+          type: "variety", 
+          options: [
+            { value: "hp", image: "/product1-sm.webp" },
+            { value: "box", image: "/product2-sm.webp" },
+            { value: "case", image: "/product3-sm.webp" },
+            { value: "case", image: "/product4-sm.webp" },
+            { value: "case", image: "/product5-sm.webp" },
+          ]
+        },
+      ],
     },
     // more products...
   ];
+  
+  
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const [disableLeft, setDisableLeft] = useState(true);
@@ -111,9 +176,10 @@ export default function CountdownComponent() {
   return (
     <div className="flex flex-col items-center mt-14 justify-center gap-3 h-screen">
       <div className="flex flex-col gap-5 mb-16">
-        <h1 className="text-orange-500 text-5xl font-bold text-center">
+      <div className={playfair.className}>
+        <h1 className="text-orange-500 font-playfair text-5xl font-bold text-center">
           Deal Collection
-        </h1>
+        </h1></div>
         <p className="text-center text-lg font-medium">
           There are many variations of passages of Lorem
         </p>

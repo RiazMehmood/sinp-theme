@@ -1,10 +1,14 @@
-"use client";
 import Image from "next/image";
 import { useState } from "react";
 import { LiaHeart } from "react-icons/lia";
 import { IoIosSearch } from "react-icons/io";
 import { BsBag } from "react-icons/bs";
 import { SlRefresh } from "react-icons/sl";
+
+interface Variation {
+  type: string;
+  options: Array<{ value: string; image: string }>;
+}
 
 interface Product {
   image: string;
@@ -13,7 +17,9 @@ interface Product {
   name: string;
   price: number;
   discountedPrice: number;
+  variations: Variation[];
 }
+
 
 export default function ProductBox({ product }: { product: Product }) {
   const [progress, setProgress] = useState(
@@ -44,7 +50,7 @@ export default function ProductBox({ product }: { product: Product }) {
         {showOverlay && (
           <div className="absolute flex inset-0 bg-opacity-50 transition-transform duration-400 origin-center items-center text-center justify-center">
             <div
-              className="flex bg-white shadow-sm rounded-full text-2xl text-gray-600 text-center gap-10 py-5 justify-center w-3/4"
+              className="flex bg-white shadow-sm rounded-full text-xl text-gray-600 text-center gap-7 py-4 justify-center w-2/4"
               style={{
                 position: "absolute",
                 top: "50%",
@@ -53,21 +59,51 @@ export default function ProductBox({ product }: { product: Product }) {
                 transition: "transform 0.5s",
               }}
             >
-              <button className="hover:text-orange-500">
-                <IoIosSearch />
-              </button >
-              <button className="hover:text-orange-500">
-                <LiaHeart />
-              </button>
-              <button className="hover:text-orange-500">
-                <SlRefresh />
-              </button>
-              <button className="hover:text-orange-500">
-                <BsBag />
-              </button>
+              <div className="tooltip">
+                <button className="hover:text-orange-500">
+                  <IoIosSearch />
+                </button>
+                <span className="tooltiptext">Quick View</span>
+              </div>
+              <div className="tooltip">
+                <button className="hover:text-orange-500">
+                  <LiaHeart />
+                </button>
+                <span className="tooltiptext">Add to wishlist</span>
+              </div>
+              <div className="tooltip">
+                <button className="hover:text-orange-500">
+                  <SlRefresh />
+                </button>
+                <span className="tooltiptext">Compare</span>
+              </div>
+              <div className="tooltip">
+                <button className="hover:text-orange-500">
+                  <BsBag />
+                </button>
+                <span className="tooltiptext">Add to cart</span>
+              </div>
             </div>
           </div>
         )}
+      {showOverlay && (
+  <div
+    className="absolute text-center w-full bottom-2 bg-white text-black p-1 shadow-sm rounded-sm flex items-center justify-center space-x-2"
+    style={{ transition: "opacity 0.5s" }}
+  >
+    {product.variations.map((variation, index) => (
+      <div key={index}>
+        {variation.options.map((option, optionIndex) => (
+          <div key={optionIndex} className="inline-block">
+            <img src={option.image} alt={option.value} className="w-9 rounded-full mx-1 h-9" />
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+)}
+
+
       </div>
       <div className="w-full p-4 mt-4">
         <div className="flex justify-between">
@@ -100,6 +136,52 @@ export default function ProductBox({ product }: { product: Product }) {
           ${product.discountedPrice.toFixed(2)}
         </p>
       </div>
+      <style jsx>{`
+        .tooltip {
+          position: relative;
+          display: inline-block;
+        }
+  
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          background-color: rgba(0, 0, 0, 0.85); /* black with 60% opacity */
+          color: #fff;
+          text-align: center;
+          padding: 2px 5px; /* Adjust the vertical padding here */
+          border-radius: 6px;
+          font-size: 0.7em; /* Adjust the font size here */
+  
+          /* Position the tooltip text */
+          position: absolute;
+          z-index: 1;
+          bottom: 125%; /* Place the tooltip above the button */
+          left: 50%;
+          transform: translateX(-50%); /* Center the tooltip */
+          white-space: nowrap; /* Prevent the text from breaking into new lines */
+  
+          /* Fade in tooltip */
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+  
+        /* Tooltip arrow */
+        .tooltip .tooltiptext::after {
+          content: "";
+          position: absolute;
+          top: 100%; /* At the bottom of the tooltip */
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent; /* black with 60% opacity */
+        }
+  
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+      `}</style>
     </div>
   );
-}
+      }  

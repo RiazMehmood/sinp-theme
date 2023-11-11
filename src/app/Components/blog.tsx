@@ -1,6 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useRef } from "react";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+});
+
 
 export default function BlogComponent() {
   const blogs = [
@@ -58,9 +64,10 @@ export default function BlogComponent() {
   return (
     <div className="flex mb-10 mt-10 justify-center">
       <div className="p-4 w-full max-w-screen-xl">
-        <h2 className="text-5xl text-orange-500 font-bold text-center mb-4">
+      <div className={playfair.className}>
+        <h2 className="text-5xl font-mayfair text-orange-500 font-bold text-center mb-4">
           Latest Blog
-        </h2>
+        </h2></div>
         <p className="text-gray-800 mb-10 text-lg text-center">
           There are many variations of passages of Lorem
         </p>
