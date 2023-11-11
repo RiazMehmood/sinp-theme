@@ -49,28 +49,27 @@ export default function CountdownComponent() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const [disableLeft, setDisableLeft] = useState(true);
-const [disableRight, setDisableRight] = useState(false);
+  const [disableRight, setDisableRight] = useState(false);
 
-
-const handleScroll = (direction: "left" | "right") => {
-  const scrollAmount = scrollContainerRef.current?.clientWidth || 0;
-  let newPosition = 0;
-  if (scrollContainerRef.current) {
-    newPosition =
-      direction === "left"
-        ? Math.max(0, scrollContainerRef.current.scrollLeft - scrollAmount)
-        : scrollContainerRef.current.scrollLeft + scrollAmount;
-    scrollContainerRef.current.scrollTo({
-      left: newPosition,
-      behavior: "smooth",
-    });
-  }
-  setDisableLeft(newPosition <= 0);
-  setDisableRight(
-    newPosition >=
-      (scrollContainerRef.current?.scrollWidth || 0) - scrollAmount
-  );
-};
+  const handleScroll = (direction: "left" | "right") => {
+    const scrollAmount = scrollContainerRef.current?.clientWidth || 0;
+    let newPosition = 0;
+    if (scrollContainerRef.current) {
+      newPosition =
+        direction === "left"
+          ? Math.max(0, scrollContainerRef.current.scrollLeft - scrollAmount)
+          : scrollContainerRef.current.scrollLeft + scrollAmount;
+      scrollContainerRef.current.scrollTo({
+        left: newPosition,
+        behavior: "smooth",
+      });
+    }
+    setDisableLeft(newPosition <= 0);
+    setDisableRight(
+      newPosition >=
+        (scrollContainerRef.current?.scrollWidth || 0) - scrollAmount
+    );
+  };
 
   const [time, setTime] = useState({
     years: 0,
@@ -134,34 +133,38 @@ const handleScroll = (direction: "left" | "right") => {
         </p>
       </div>
       <div className="flex items-center mb-20 max-w-screen-xl relative">
-  <button
-    disabled={disableLeft}
-    className={`border rounded-full bg-white text-2xl px-3 z-10 py-1 absolute left-8 top-1/2 transform -translate-y-1/2 ${
-      disableLeft ? "bg-gray-100 text-gray-400" : "hover:border-orange-500 hover:text-orange-500"
-    }`}
-    onClick={() => handleScroll("left")}
-  >
-    &lt;
-  </button>
-  <div
-    ref={scrollContainerRef}
-    className="overflow-x-scroll whitespace-nowrap flex-1 scroll-smooth mx-2 hide-scrollbar flex"
-    style={{ scrollBehavior: "smooth" }}
-  >
-    {products.map((product, index) => (
-      <ProductBox key={index} product={product} />
-    ))}
-  </div>
-  <button
-    disabled={disableRight}
-    className={`border rounded-full text-2xl px-3 z-10 bg-white py-1 absolute right-8 top-1/2 transform -translate-y-1/2 ${
-      disableRight ? "bg-gray-100 text-gray-400" : "hover:border-orange-500 hover:text-orange-500"
-    }`}
-    onClick={() => handleScroll("right")}
-  >
-    &gt;
-  </button>
-</div>
+        <button
+          disabled={disableLeft}
+          className={`border rounded-full bg-white text-2xl px-3 z-10 py-1 absolute left-8 top-1/2 transform -translate-y-1/2 ${
+            disableLeft
+              ? "bg-gray-100 text-gray-400"
+              : "hover:border-orange-500 hover:text-orange-500"
+          }`}
+          onClick={() => handleScroll("left")}
+        >
+          &lt;
+        </button>
+        <div
+          ref={scrollContainerRef}
+          className="overflow-x-scroll whitespace-nowrap flex-1 scroll-smooth mx-2 hide-scrollbar flex"
+          style={{ scrollBehavior: "smooth" }}
+        >
+          {products.map((product, index) => (
+            <ProductBox key={index} product={product} />
+          ))}
+        </div>
+        <button
+          disabled={disableRight}
+          className={`border rounded-full text-2xl px-3 z-10 bg-white py-1 absolute right-8 top-1/2 transform -translate-y-1/2 ${
+            disableRight
+              ? "bg-gray-100 text-gray-400"
+              : "hover:border-orange-500 hover:text-orange-500"
+          }`}
+          onClick={() => handleScroll("right")}
+        >
+          &gt;
+        </button>
+      </div>
     </div>
   );
 }
