@@ -2,114 +2,12 @@
 import { useState, useEffect, useRef } from "react";
 import ProductBox from "../Components/products";
 import { Playfair_Display } from "next/font/google";
-
+import { products } from "../utils/data";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 export default function CountdownComponent() {
-  const products = [
-    {
-      image: "/product1.webp",
-      sold: 90,
-      available: 100,
-      name: "Product 1",
-      price: 110.0,
-      discountedPrice: 130.0,
-      variations: [
-        { 
-          type: "variety", 
-          options: [
-            { value: "hp", image: "/product1-sm.webp" },
-            { value: "box", image: "/product2-sm.webp" },
-            { value: "case", image: "/product4-sm.webp" },
-            { value: "case", image: "/product5-sm.webp" },
-          ]
-        },
-      ],
-    },
-    {
-      image: "/product2.webp",
-      sold: 10,
-      available: 50,
-      name: "Product 2",
-      price: 110.0,
-      discountedPrice: 130.0,
-      variations: [
-        { 
-          type: "variety", 
-          options: [
-            { value: "hp", image: "/product1-sm.webp" },
-            { value: "box", image: "/product2-sm.webp" },
-            { value: "case", image: "/product3-sm.webp" },
-
-          ]
-        },
-      ],
-    },
-    {
-      image: "/product3.webp",
-      sold: 25,
-      available: 50,
-      name: "Product 3",
-      price: 110.0,
-      discountedPrice: 130.0,
-      variations: [
-        { 
-          type: "variety", 
-          options: [
-            { value: "hp", image: "/product1-sm.webp" },
-            { value: "box", image: "/product2-sm.webp" },
-            { value: "case", image: "/product3-sm.webp" },
-            { value: "case", image: "/product4-sm.webp" },
-            { value: "case", image: "/product5-sm.webp" },
-          ]
-        },
-      ],
-    },
-    {
-      image: "/product4.webp",
-      sold: 23,
-      available: 50,
-      name: "Product 4",
-      price: 110.0,
-      discountedPrice: 130.0,
-      variations: [
-        { 
-          type: "variety", 
-          options: [
-            { value: "hp", image: "/product1-sm.webp" },
-            { value: "box", image: "/product2-sm.webp" },
-            { value: "case", image: "/product3-sm.webp" },
-            { value: "case", image: "/product4-sm.webp" },
-            { value: "case", image: "/product5-sm.webp" },
-          ]
-        },
-      ],
-    },
-    {
-      image: "/product5.webp",
-      sold: 42,
-      available: 50,
-      name: "Product 5",
-      price: 110.0,
-      discountedPrice: 130.0,
-      variations: [
-        { 
-          type: "variety", 
-          options: [
-            { value: "hp", image: "/product1-sm.webp" },
-            { value: "box", image: "/product2-sm.webp" },
-            { value: "case", image: "/product3-sm.webp" },
-            { value: "case", image: "/product4-sm.webp" },
-            { value: "case", image: "/product5-sm.webp" },
-          ]
-        },
-      ],
-    },
-    // more products...
-  ];
-  
   
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 

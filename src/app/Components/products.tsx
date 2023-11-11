@@ -4,21 +4,8 @@ import { LiaHeart } from "react-icons/lia";
 import { IoIosSearch } from "react-icons/io";
 import { BsBag } from "react-icons/bs";
 import { SlRefresh } from "react-icons/sl";
-
-interface Variation {
-  type: string;
-  options: Array<{ value: string; image: string }>;
-}
-
-interface Product {
-  image: string;
-  sold: number;
-  available: number;
-  name: string;
-  price: number;
-  discountedPrice: number;
-  variations: Variation[];
-}
+import { Variation } from "../utils/interfaces";
+import { Product } from "../utils/interfaces";
 
 export default function ProductBox({ product }: { product: Product }) {
   const [progress, setProgress] = useState(

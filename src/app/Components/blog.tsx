@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { Playfair_Display } from "next/font/google";
+import { blogs } from "../utils/data";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -9,42 +10,7 @@ const playfair = Playfair_Display({
 
 
 export default function BlogComponent() {
-  const blogs = [
-    {
-      id: 1,
-      title: "Blog Title 1",
-      date: "2023-01-01",
-      comments: 10,
-      description: "This is a short description of the blog post.",
-      imageUrl: "/blog1.webp",
-    },
-    {
-      id: 2,
-      title: "Blog Title 2",
-      date: "2023-01-01",
-      comments: 10,
-      description: "This is a short description of the blog post.",
-      imageUrl: "/blog2.webp",
-    },
-    {
-      id: 3,
-      title: "Blog Title 3",
-      date: "2023-01-01",
-      comments: 10,
-      description: "This is a short description of the blog post.",
-      imageUrl: "/blog3.webp",
-    },
-    {
-      id: 4,
-      title: "Blog Title 4",
-      date: "2023-01-01",
-      comments: 10,
-      description: "This is a short description of the blog post.",
-      imageUrl: "/blog4.webp",
-    },
-    // Add more blog objects here...
-  ];
-
+  
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: "left" | "right") => {
