@@ -5,8 +5,6 @@ import "./globals.css";
 
 import Footer from "./Components/footer";
 import Navbar from "./Components/navbar";
-// import NavbarResponsive from "./Components/navbarResponsive";
-
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,10 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className=" {poppins.className} bg-white text-dark">
-        <Navbar/>
-        {/* <NavbarResponsive/> */}
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
