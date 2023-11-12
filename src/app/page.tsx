@@ -1,15 +1,17 @@
 import Hero from "./Hero/page";
 import BlogComponent from "./Components/blog";
-import Spacer from "./Components/spacer";
 import SubscribeComponent from "./Components/subscribe";
 import CountdownComponent from "./Components/time";
 import VideoComponent from "./Components/video";
+import FeaturedProduct from "./Components/Featured1";
+import FeaturedProduct2 from "./Components/featured2";
 
 export default function Home() {
   return (
     <main className="">
       <Hero/>
-      <Spacer/>
+      <FeaturedProduct/>
+      <FeaturedProduct2/>
       <CountdownComponent/>
       <VideoComponent/>
       <BlogComponent/>

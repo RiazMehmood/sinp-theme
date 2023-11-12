@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Playfair_Display } from "next/font/google";
 import { blogs } from "../utils/data";
 
@@ -11,21 +11,34 @@ const playfair = Playfair_Display({
 
 export default function BlogComponent() {
   
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const handleScroll = (direction: "left" | "right") => {
-    const scrollAmount = scrollContainerRef.current?.clientWidth || 0; // Scroll by the width of the container
-    if (scrollContainerRef.current) {
-      const newPosition =
-        direction === "left"
-          ? Math.max(0, scrollContainerRef.current.scrollLeft - scrollAmount)
-          : scrollContainerRef.current.scrollLeft + scrollAmount;
-      scrollContainerRef.current.scrollTo({
-        left: newPosition,
-        behavior: "smooth",
-      });
-    }
-  };
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [isAtLeft, setIsAtLeft] = useState(true);
+    const [isAtRight, setIsAtRight] = useState(false);
+  
+    useEffect(() => {
+      const scrollContainer = scrollContainerRef.current;
+      if (scrollContainer) {
+        setIsAtLeft(scrollContainer.scrollLeft === 0);
+        setIsAtRight(scrollContainer.scrollLeft + scrollContainer.clientWidth === scrollContainer.scrollWidth);
+      }
+    }, []);
+  
+    const handleScroll = (direction: "left" | "right") => {
+      const scrollAmount = scrollContainerRef.current?.clientWidth || 0; // Scroll by the width of the container
+      if (scrollContainerRef.current) {
+        const newPosition =
+          direction === "left"
+            ? Math.max(0, scrollContainerRef.current.scrollLeft - scrollAmount)
+            : scrollContainerRef.current.scrollLeft + scrollAmount;
+        scrollContainerRef.current.scrollTo({
+          left: newPosition,
+          behavior: "smooth",
+        });
+        setIsAtLeft(newPosition === 0);
+        setIsAtRight(newPosition + scrollContainerRef.current.clientWidth === scrollContainerRef.current.scrollWidth);
+      }
+    };
+  
 
   return (
     <div className="flex mb-10 mt-10 justify-center">
@@ -40,7 +53,8 @@ export default function BlogComponent() {
 
         <div className="flex items-center justify-center">
           <button
-            className="border hover:border-orange-500 hover:text-orange-500 rounded-full text-2xl px-3 py-1"
+            disabled={isAtLeft}
+            className={`border rounded-full text-2xl px-3 py-1 ${isAtLeft ? 'opacity-50 cursor-default' : 'hover:border-orange-500 hover:text-orange-500'}`}
             onClick={() => handleScroll("left")}
           >
             &lt;
@@ -82,7 +96,8 @@ export default function BlogComponent() {
             ))}
           </div>
           <button
-            className="border rounded-full text-2xl px-3 py-1 hover:border-orange-500 hover:text-orange-500"
+            disabled={isAtRight}
+            className={`border rounded-full text-2xl px-3 py-1 ${isAtRight ? 'opacity-50 cursor-default' : 'hover:border-orange-500 hover:text-orange-500'}`}
             onClick={() => handleScroll("right")}
           >
             &gt;

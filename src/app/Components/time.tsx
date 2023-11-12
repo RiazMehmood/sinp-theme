@@ -72,7 +72,7 @@ export default function CountdownComponent() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-14 justify-center gap-3 h-screen">
+    <div className="flex flex-col items-center mt-60 justify-center gap-3 h-screen">
       <div className="flex flex-col gap-5 mb-16">
       <div className={playfair.className}>
         <h1 className="text-orange-500 font-playfair text-5xl font-bold text-center">
