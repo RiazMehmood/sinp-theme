@@ -23,15 +23,15 @@ const ShoppingCart = ({ itemCount, totalPrice }: Cart) => {
   return (
     <div>
       <div className="w-1/2 xs:w-full lg:w-3/12 md:w-full flex">
-        <ul className="flex items-center xs:ml-8 xs:text-xl justify-end">
+        <ul className="flex items-center xs:ml-8 xs:text-xl 3xl:text-5xl justify-end">
           <li className="ml-6 hidden lg:block">
             <SearchIcon />
           </li>
           <li className="ml-6 flex relative">
-            <div className="hover:text-orange-400 text-xl">
+            <div className="hover:text-orange-400 text-xl 3xl:text-5xl">
               <SlBag />
             </div>
-            <div className="absolute -top-3 right-8 xs:right-10 text-[15px] bg-black w-5 h-5 flex items-center justify-center font-normal text-white rounded-full">
+            <div className="absolute -top-3 right-8 xs:right-10 3xl:-top-8 3xl:right-24 text-[15px] 3xl:text-3xl 3xl:w-10 3xl:h-10 bg-black w-5 h-5 flex items-center justify-center font-normal text-white rounded-full">
               {itemCount}
             </div>
             <p className="ml-2">{`$${totalPrice}`}</p>

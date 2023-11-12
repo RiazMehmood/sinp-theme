@@ -16,10 +16,10 @@ const Navbar = () => {
   return (
     
     <div className="fixed inset-x-0 top-0 z-20 w-screen">
-      <div className="px-4 2xl:px-24 py-6 lg:px-10 lg:py-0">
+      <div className="px-4 2xl:px-24 py-6 lg:px-10 lg:py-0 3xl:py-5">
         <div className="flex items-center md:justify-around md:space-x-16 lg:relative">
           {/* logo */}
-          <div className="w-1/2 lg:w-2/12">
+          <div className="w-1/2 lg:w-2/12 3xl:w-[15%] ">
             <div>
               <Link href={"/"}>
                 <Image
@@ -28,12 +28,13 @@ const Navbar = () => {
                   loading="lazy"
                   width={125}
                   height={45}
+                  className="3xl:w-[250px] h-[90px]"
                 />
               </Link>
             </div>
           </div>
           {/* Navbar */}
-          <div className="hidden lg:flex flex-1 text-[21px] xl:relative">
+          <div className="hidden lg:flex flex-1 text-[21px] 3xl:text-[40px] xl:relative">
             <ul className="flex lg:-ml-14">
               <NavMenu label="Home" navItems={homeNav} />
               <MegaMenu />
