@@ -16,8 +16,8 @@ const Navbar = () => {
   return (
     
     <div className="fixed inset-x-0 top-0 z-20 w-screen">
-      <div className="px-4 md:px-10 2xl:px-24 py-6 lg:py-0">
-        <div className="flex items-center lg:relative">
+      <div className="px-4 2xl:px-24 py-6 lg:px-10 lg:py-0">
+        <div className="flex items-center md:justify-around md:space-x-16 lg:relative">
           {/* logo */}
           <div className="w-1/2 lg:w-2/12">
             <div>
@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
           {/* Navbar */}
           <div className="hidden lg:flex flex-1 text-[21px] xl:relative">
-            <ul className="flex flex-wrap">
+            <ul className="flex lg:-ml-14">
               <NavMenu label="Home" navItems={homeNav} />
               <MegaMenu />
               <BlogMenu />

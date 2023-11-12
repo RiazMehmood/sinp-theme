@@ -22,8 +22,8 @@ const ShoppingCart = ({ itemCount, totalPrice }: Cart) => {
 
   return (
     <div>
-      <div className="w-1/2 lg:w-3/12 flex">
-        <ul className="flex items-center justify-end">
+      <div className="w-1/2 xs:w-full lg:w-3/12 md:w-full flex">
+        <ul className="flex items-center xs:ml-8 xs:text-xl justify-end">
           <li className="ml-6 hidden lg:block">
             <SearchIcon />
           </li>
@@ -31,7 +31,7 @@ const ShoppingCart = ({ itemCount, totalPrice }: Cart) => {
             <div className="hover:text-orange-400 text-xl">
               <SlBag />
             </div>
-            <div className="absolute -top-3 right-8 text-[15px] bg-black w-5 h-5 flex items-center justify-center font-normal text-white rounded-full">
+            <div className="absolute -top-3 right-8 xs:right-10 text-[15px] bg-black w-5 h-5 flex items-center justify-center font-normal text-white rounded-full">
               {itemCount}
             </div>
             <p className="ml-2">{`$${totalPrice}`}</p>
@@ -39,7 +39,7 @@ const ShoppingCart = ({ itemCount, totalPrice }: Cart) => {
           <li className="ml-6 hidden lg:block relative">
             <SlSettings />
           </li>
-          <li className="ml-6 text-2xl lg:hidden" onClick={handleClick}>
+          <li className="ml-6 2xs:ml-12 text-2xl lg:hidden" onClick={handleClick}>
             <RxHamburgerMenu />
           </li>
         </ul>

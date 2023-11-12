@@ -11,12 +11,12 @@ export default function Home() {
     <main className="">
       <Hero/>
       {/* <Spacer/> */}
-      <FeaturedProduct/>
+      {/* <FeaturedProduct/>
       <FeaturedProduct2/>
       <CountdownComponent/>
       <VideoComponent/>
       <BlogComponent/>
-      <SubscribeComponent />
+      <SubscribeComponent /> */}
     </main>
   );
 }
