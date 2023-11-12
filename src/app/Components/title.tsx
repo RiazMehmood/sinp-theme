@@ -1,10 +1,5 @@
 import { Playfair_Display } from "next/font/google";
-interface Title {
-  title: string;
-  title2: string;
-  topTitle?: string;
-  description?: string;
-}
+import { Title } from "../utils/interfaces";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
