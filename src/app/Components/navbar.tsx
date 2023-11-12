@@ -28,7 +28,7 @@ const Navbar = () => {
                   loading="lazy"
                   width={125}
                   height={45}
-                  className="3xl:w-[250px] h-[90px]"
+                  className="3xl:w-[250px] 3xl:h-[90px]"
                 />
               </Link>
             </div>

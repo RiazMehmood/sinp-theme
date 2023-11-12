@@ -10,13 +10,12 @@ export default function Home() {
   return (
     <main className="">
       <Hero/>
-      {/* <Spacer/> */}
-      {/* <FeaturedProduct/>
+      <FeaturedProduct/>
       <FeaturedProduct2/>
       <CountdownComponent/>
       <VideoComponent/>
       <BlogComponent/>
-      <SubscribeComponent /> */}
+      <SubscribeComponent />
     </main>
   );
 }
