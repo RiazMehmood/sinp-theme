@@ -1,4 +1,4 @@
-
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logo.webp";
@@ -8,14 +8,33 @@ import PagesMenu from "../Components/pagesMenu";
 import ShoppingCart from "../Components/shoppingCart";
 import NavMenu from "../Components/navMenu";
 import { homeNav } from "../utils/data";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [scrolling, setScrolling] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    
-    <div className="fixed inset-x-0 top-0 z-20 w-screen">
+    <div
+      className={`fixed inset-x-0 top-0 z-20 w-screen ${
+        scrolling && "bg-white"
+      }`}
+    >
       <div className="px-4 2xl:px-24 py-6 lg:px-10 lg:py-0 3xl:py-5">
         <div className="flex items-center md:justify-around md:space-x-16 lg:relative">
           {/* logo */}
@@ -47,7 +66,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-          <ShoppingCart itemCount={4} totalPrice={215} />
+            <ShoppingCart itemCount={4} totalPrice={215} />
           </div>
         </div>
       </div>
