@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 
 import "./globals.css";
-import Navbar from "./Navbar/page";
+
 import Footer from "./Components/footer";
+import Navbar from "./Components/navbar";
+// import NavbarResponsive from "./Components/navbarResponsive";
 
 
 const poppins = Poppins({
@@ -23,10 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" {poppins.className} max-w-screen-2xl bg-white mx-auto text-dark">
-        <Navbar />
+      <body className=" {poppins.className} bg-white text-dark">
+        <Navbar/>
+        {/* <NavbarResponsive/> */}
         {children}
-        {/* <Footer/>*/}
         <Footer/>
       </body>
     </html>

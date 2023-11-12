@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logo.webp";
@@ -7,14 +8,18 @@ import PagesMenu from "../Components/pagesMenu";
 import ShoppingCart from "../Components/shoppingCart";
 import NavMenu from "../Components/navMenu";
 import { homeNav } from "../utils/data";
+
 const Navbar = () => {
 
+
+
   return (
-    <header className="fixed inset-x-0 top-0 w-full z-20">
+    
+    <div className="fixed inset-x-0 top-0 z-20 w-screen">
       <div className="px-4 md:px-10 2xl:px-24 py-6 lg:py-0">
         <div className="flex items-center lg:relative">
           {/* logo */}
-          <div className="w-6/12 lg:w-2/12">
+          <div className="w-1/2 lg:w-2/12">
             <div>
               <Link href={"/"}>
                 <Image
@@ -40,11 +45,12 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <br />
+          <div>
           <ShoppingCart itemCount={4} totalPrice={215} />
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 
