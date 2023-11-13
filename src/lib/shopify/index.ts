@@ -261,80 +261,80 @@ if(res.status==200)
 return imageObjectList 
 }
 
-export async function getPinkProduct()
-{
-  const query=`
-  query getPinkProduct {
-    metaobject(
-      handle: {handle: "action-feature", type: "pink_product_section"}
-    ) {
-      fields {
-        value
-        key
-        reference {
-          ... on MediaImage {
-            image {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-  `
-  const res = await shopifyFetch<any>({query,cache:"no-cache"})
-  // const imageObject:ProductImage={
-  //   button:"",
-  //   detail:[],
-  //   topText:"",
-  //   heading:"",
-  //   image:""
-  // }
+// export async function getPinkProduct()
+// {
+//   const query=`
+//   query getPinkProduct {
+//     metaobject(
+//       handle: {handle: "action-feature", type: "pink_product_section"}
+//     ) {
+//       fields {
+//         value
+//         key
+//         reference {
+//           ... on MediaImage {
+//             image {
+//               url
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+//   `
+//   const res = await shopifyFetch<any>({query,cache:"no-cache"})
+//   // const imageObject:ProductImage={
+//   //   button:"",
+//   //   detail:[],
+//   //   topText:"",
+//   //   heading:"",
+//   //   image:""
+//   // }
 
-  const imageObject:ProductImage={
-    button:"",
-    detail:[],
-    topText:"",
-    heading:"",
-    image:""
-  }
+//   const imageObject:ProductImage={
+//     button:"",
+//     detail:[],
+//     topText:"",
+//     heading:"",
+//     image:""
+//   }
 
-  let listItem:TypeValue[]=[];
+//   let listItem:TypeValue[]=[];
 
-  if(res.status==200)
-  {
-      const data = res.body.data.metaobject.fields
-      data.map((item:any,index:number)=>{
+//   if(res.status==200)
+//   {
+//       const data = res.body.data.metaobject.fields
+//       data.map((item:any,index:number)=>{
         
-          if(item.key=="button_text")
-            imageObject["button"]=item.value
-          else if(item.key=="detail")
-          {
-            const obj = JSON.parse(item.value)
-            const list = obj.children[0].children
-            list.map(i=>{
-              listItem.push(i.children[0].value) 
-            })
+//           if(item.key=="button_text")
+//             imageObject["button"]=item.value
+//           else if(item.key=="detail")
+//           {
+//             const obj = JSON.parse(item.value)
+//             const list = obj.children[0].children
+//             list.map((i)=>{
+//               listItem.push(i.children[0].value) 
+//             })
             
-            imageObject["detail"]=listItem
-          }
-          else if(item.key=="top_text")
-            imageObject["topText"]=item.value
-          else if(item.key=="heading")
-            imageObject["heading"]=item.value
-          else if(item.key=="image")
-            imageObject["image"]=item.reference.image.url
+//             imageObject["detail"]=listItem
+//           }
+//           else if(item.key=="top_text")
+//             imageObject["topText"]=item.value
+//           else if(item.key=="heading")
+//             imageObject["heading"]=item.value
+//           else if(item.key=="image")
+//             imageObject["image"]=item.reference.image.url
         
-      })
-      //console.log(imageObject)
-      return imageObject
-  }
-  else
-  {
-    console.log("metaobject not found")
-  }
+//       })
+//       //console.log(imageObject)
+//       return imageObject
+//   }
+//   else
+//   {
+//     console.log("metaobject not found")
+//   }
 
-}
+// }
 
 export async function getDealSliderProducts()
 {
@@ -397,7 +397,8 @@ export async function getDealSliderProducts()
         discountedPrice:0,
         currentInventory:0,
         image:"",
-        sold:0
+        sold:0,
+        variations:[]
       }
       fields.map((field:any,index:number)=>{
 
@@ -413,7 +414,17 @@ export async function getDealSliderProducts()
           product["currentInventory"] = field.reference.totalInventory
           product["image"] = field.reference.featuredImage.url
           product["sold"] = product["startInventory"] - field.reference.totalInventory
-          
+          product["variations"] = [
+            { 
+              type: "variety", 
+              options: [
+                { value: "hp", image: "/product1-sm.webp" },
+                { value: "box", image: "/product2-sm.webp" },
+                { value: "case", image: "/product4-sm.webp" },
+                { value: "case", image: "/product5-sm.webp" },
+              ]
+            },
+          ]
         }
         
         

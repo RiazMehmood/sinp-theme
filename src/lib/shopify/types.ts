@@ -291,5 +291,11 @@ export type DealProduct={
   discountedPrice:number,
   currentInventory:number,
   image:string,
-  sold:number
+  sold:number,
+  variations: Variation[];
+}
+
+export interface Variation {
+  type: string;
+  options: Array<{ value: string; image: string }>;
 }
