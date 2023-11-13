@@ -1,18 +1,18 @@
+
 import Image from "next/image";
 import { useState } from "react";
 import { LiaHeart } from "react-icons/lia";
 import { IoIosSearch } from "react-icons/io";
 import { BsBag } from "react-icons/bs";
 import { SlRefresh } from "react-icons/sl";
-import { Variation } from "../utils/interfaces";
-import { Product } from "../utils/interfaces";
+import { DealProduct } from "@/lib/shopify/types";
 
-export default function ProductBox({ product }: { product: Product }) {
+export default function ProductBox({ product }: { product: DealProduct }) {
   const [progress, setProgress] = useState(
-    (product.sold / (product.sold + product.available)) * 100
+    (product.sold / (product.sold + product.currentInventory)) * 100
   );
   const sale =
-    ((product.price - product.discountedPrice) / product.price) * 100;
+    ((product.actualPrice - product.discountedPrice) / product.actualPrice) * 100;
   const [showOverlay, setShowOverlay] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
 
@@ -112,8 +112,13 @@ export default function ProductBox({ product }: { product: Product }) {
           </div>
           <div>
             Available:{" "}
+<<<<<<< HEAD
             <span className="text-[#fc6539] font-medium">
               {product.available}
+=======
+            <span className="text-orange-500 font-medium">
+              {product.currentInventory}
+>>>>>>> work
             </span>
           </div>
         </div>
@@ -124,6 +129,7 @@ export default function ProductBox({ product }: { product: Product }) {
           ></div>
         </div>
       </div>
+<<<<<<< HEAD
       <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-[#fc6539] font-normal">
         {product.name}
       </h2>
@@ -133,6 +139,17 @@ export default function ProductBox({ product }: { product: Product }) {
         </p>
         <p className="mt-2 text-[#fc6539] font-bold text-lg">
           ${product.discountedPrice.toFixed(2)}
+=======
+      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-orange-500 font-normal">
+        {product.title}
+      </h2>
+      <div className="flex px-4 gap-1 pb-4">
+        <p className="mt-2 text-orange-500 line-through">
+          ${product.actualPrice}
+        </p>
+        <p className="mt-2 text-orange-500 font-bold text-lg">
+          ${product.discountedPrice}
+>>>>>>> work
         </p>
       </div>
       <style jsx>{`
