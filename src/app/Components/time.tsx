@@ -1,51 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import ProductBox from "../Components/products";
+import { Playfair_Display } from "next/font/google";
+import { products } from "../utils/data";
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+});
 export default function CountdownComponent() {
-  const products = [
-    {
-      image: "/product1.webp",
-      sold: 90,
-      available: 100,
-      name: "Product 1",
-      price: 110.0,
-      discountedPrice: 130.0,
-    },
-    {
-      image: "/product2.webp",
-      sold: 10,
-      available: 50,
-      name: "Product 2",
-      price: 110.0,
-      discountedPrice: 130.0,
-    },
-    {
-      image: "/product3.webp",
-      sold: 25,
-      available: 50,
-      name: "Product 3",
-      price: 110.0,
-      discountedPrice: 130.0,
-    },
-    {
-      image: "/product4.webp",
-      sold: 23,
-      available: 50,
-      name: "Product 4",
-      price: 110.0,
-      discountedPrice: 130.0,
-    },
-    {
-      image: "/product5.webp",
-      sold: 42,
-      available: 50,
-      name: "Product 5",
-      price: 110.0,
-      discountedPrice: 130.0,
-    },
-    // more products...
-  ];
+  
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const [disableLeft, setDisableLeft] = useState(true);
@@ -109,12 +72,13 @@ export default function CountdownComponent() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-3 h-screen">
+    <div className="flex flex-col items-center mt-60 justify-center gap-3 h-screen">
       <div className="flex flex-col gap-5 mb-16">
-        <h1 className="text-orange-500 text-4xl font-bold text-center">
+      <div className={playfair.className}>
+        <h1 className="text-orange-500 font-playfair text-5xl font-bold text-center">
           Deal Collection
-        </h1>
-        <p className="text-center text-base font-medium">
+        </h1></div>
+        <p className="text-center text-lg font-medium">
           There are many variations of passages of Lorem
         </p>
       </div>
