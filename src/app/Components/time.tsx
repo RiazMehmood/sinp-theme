@@ -75,7 +75,7 @@ export default function CountdownComponent() {
     <div className="flex flex-col items-center mt-60 justify-center gap-3 h-screen">
       <div className="flex flex-col gap-5 mb-16">
       <div className={playfair.className}>
-        <h1 className="text-orange-500 font-playfair text-5xl font-bold text-center">
+        <h1 className="text-[#fc6539] font-playfair text-5xl font-bold text-center">
           Deal Collection
         </h1></div>
         <p className="text-center text-lg font-medium">
@@ -102,7 +102,7 @@ export default function CountdownComponent() {
           className={`border rounded-full bg-white text-2xl px-3 z-10 py-1 absolute left-8 top-1/2 transform -translate-y-1/2 ${
             disableLeft
               ? "bg-gray-100 text-gray-400"
-              : "hover:border-orange-500 hover:text-orange-500"
+              : "hover:border-[#fc6539] duration-100 hover:text-[#fc6539]"
           }`}
           onClick={() => handleScroll("left")}
         >
@@ -122,7 +122,7 @@ export default function CountdownComponent() {
           className={`border rounded-full text-2xl px-3 z-10 bg-white py-1 absolute right-8 top-1/2 transform -translate-y-1/2 ${
             disableRight
               ? "bg-gray-100 text-gray-400"
-              : "hover:border-orange-500 hover:text-orange-500"
+              : "hover:border-[#fc6539] duration-100 hover:text-[#fc6539]"
           }`}
           onClick={() => handleScroll("right")}
         >

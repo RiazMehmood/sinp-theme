@@ -20,7 +20,7 @@ export default function ProductBox({ product }: { product: Product }) {
 
   return (
     <div
-  className="flex flex-col m-4 bg-white shadow-sm hover:shadow-lg hover:border rounded"
+  className="flex flex-col m-4 duration-200 bg-white shadow-sm hover:shadow-lg hover:border rounded"
   onMouseEnter={() => {
     setShowOverlay(true);
     setOverlayVisible(true);
@@ -55,25 +55,25 @@ export default function ProductBox({ product }: { product: Product }) {
               }}
             >
               <div className="tooltip">
-                <button className="hover:text-orange-500">
+                <button className="hover:text-[#fc6539]">
                   <IoIosSearch />
                 </button>
                 <span className="tooltiptext">Quick View</span>
               </div>
               <div className="tooltip">
-                <button className="hover:text-orange-500">
+                <button className="hover:text-[#fc6539]">
                   <LiaHeart />
                 </button>
                 <span className="tooltiptext">Add to wishlist</span>
               </div>
               <div className="tooltip">
-                <button className="hover:text-orange-500">
+                <button className="hover:text-[#fc6539]">
                   <SlRefresh />
                 </button>
                 <span className="tooltiptext">Compare</span>
               </div>
               <div className="tooltip">
-                <button className="hover:text-orange-500">
+                <button className="hover:text-[#fc6539]">
                   <BsBag />
                 </button>
                 <span className="tooltiptext">Add to cart</span>
@@ -108,30 +108,30 @@ export default function ProductBox({ product }: { product: Product }) {
         <div className="flex justify-between">
           <div>
             Sold:{" "}
-            <span className="text-orange-500 font-medium">{product.sold}</span>
+            <span className="text-[#fc6539] font-medium">{product.sold}</span>
           </div>
           <div>
             Available:{" "}
-            <span className="text-orange-500 font-medium">
+            <span className="text-[#fc6539] font-medium">
               {product.available}
             </span>
           </div>
         </div>
         <div className="w-full h-2 bg-gray-200 rounded mt-2">
           <div
-            className="h-full bg-orange-500"
+            className="h-full bg-[#fc6539]"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
       </div>
-      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-orange-500 font-normal">
+      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-[#fc6539] font-normal">
         {product.name}
       </h2>
       <div className="flex px-4 gap-1 pb-4">
-        <p className="mt-2 text-orange-500 line-through">
+        <p className="mt-2 text-[#fc6539] line-through">
           ${product.price.toFixed(2)}
         </p>
-        <p className="mt-2 text-orange-500 font-bold text-lg">
+        <p className="mt-2 text-[#fc6539] font-bold text-lg">
           ${product.discountedPrice.toFixed(2)}
         </p>
       </div>

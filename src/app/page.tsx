@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <FeaturedProduct />
       <FeaturedProduct2 />
-      {/* <CountdownComponent /> */}
+      <CountdownComponent />
       <VideoComponent />
       <BlogComponent />
       <SubscribeComponent />
