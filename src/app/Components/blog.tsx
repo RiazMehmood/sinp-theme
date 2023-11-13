@@ -34,17 +34,18 @@ export default function BlogComponent() {
           left: newPosition,
           behavior: "smooth",
         });
-        setIsAtLeft(newPosition === 0);
-        setIsAtRight(newPosition + scrollContainerRef.current.clientWidth === scrollContainerRef.current.scrollWidth);
-      }
-    };
-  
+        setIsAtLeft(newPosition <= 0);
+        setIsAtRight(
+          newPosition >=
+            (scrollContainerRef.current?.scrollWidth || 0) - scrollAmount
+        );
+        }}
 
   return (
     <div className="flex mb-10 mt-10 justify-center">
       <div className="p-4 w-full max-w-screen-xl">
       <div className={playfair.className}>
-        <h2 className="text-5xl font-mayfair text-orange-500 font-bold text-center mb-4">
+        <h2 className="text-5xl font-mayfair text-[#fc6539] font-bold text-center mb-4">
           Latest Blog
         </h2></div>
         <p className="text-gray-800 mb-10 text-lg text-center">
@@ -54,7 +55,7 @@ export default function BlogComponent() {
         <div className="flex items-center justify-center">
           <button
             disabled={isAtLeft}
-            className={`border rounded-full text-2xl px-3 py-1 ${isAtLeft ? 'opacity-50 cursor-default' : 'hover:border-orange-500 hover:text-orange-500'}`}
+            className={`border rounded-full text-2xl px-3 py-1 ${isAtLeft ? 'opacity-50 cursor-default' : 'hover:border-[#fc6539] duration-100 hover:text-[#fc6539]'}`}
             onClick={() => handleScroll("left")}
           >
             &lt;
@@ -82,14 +83,14 @@ export default function BlogComponent() {
                     layout="responsive"
                   />
                 </div>
-                <h3 className="text-xl font-semibold hover:text-orange-500 cursor-pointer mt-6">
+                <h3 className="text-xl font-semibold hover:text-[#fc6539] cursor-pointer mt-6">
                   {blog.title}
                 </h3>
                 <p className="text-gray-500 mt-4">
                   {blog.date} \ {blog.comments} comments
                 </p>
                 <p className="mt-2">{blog.description}</p>
-                <button className="mt-4 mb-2 px-4 py-2 text-gray-800 hover:bg-orange-500 hover:text-white font-semibold border rounded">
+                <button className="mt-4 mb-2 px-4 py-2 text-gray-800 duration-100 hover:bg-[#fc6539] hover:text-white font-semibold border rounded">
                   Blog Details
                 </button>
               </div>
@@ -97,7 +98,7 @@ export default function BlogComponent() {
           </div>
           <button
             disabled={isAtRight}
-            className={`border rounded-full text-2xl px-3 py-1 ${isAtRight ? 'opacity-50 cursor-default' : 'hover:border-orange-500 hover:text-orange-500'}`}
+            className={`border rounded-full text-2xl px-3 py-1 ${isAtRight ? 'opacity-50 cursor-default' : 'hover:border-[#fc6539] duration-100 hover:text-[#fc6539]'}`}
             onClick={() => handleScroll("right")}
           >
             &gt;
