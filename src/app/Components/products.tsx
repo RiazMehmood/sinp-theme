@@ -112,13 +112,8 @@ export default function ProductBox({ product }: { product: DealProduct }) {
           </div>
           <div>
             Available:{" "}
-<<<<<<< HEAD
-            <span className="text-[#fc6539] font-medium">
-              {product.available}
-=======
             <span className="text-orange-500 font-medium">
               {product.currentInventory}
->>>>>>> work
             </span>
           </div>
         </div>
@@ -129,17 +124,6 @@ export default function ProductBox({ product }: { product: DealProduct }) {
           ></div>
         </div>
       </div>
-<<<<<<< HEAD
-      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-[#fc6539] font-normal">
-        {product.name}
-      </h2>
-      <div className="flex px-4 gap-1 pb-4">
-        <p className="mt-2 text-[#fc6539] line-through">
-          ${product.price.toFixed(2)}
-        </p>
-        <p className="mt-2 text-[#fc6539] font-bold text-lg">
-          ${product.discountedPrice.toFixed(2)}
-=======
       <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-orange-500 font-normal">
         {product.title}
       </h2>
@@ -149,7 +133,6 @@ export default function ProductBox({ product }: { product: DealProduct }) {
         </p>
         <p className="mt-2 text-orange-500 font-bold text-lg">
           ${product.discountedPrice}
->>>>>>> work
         </p>
       </div>
       <style jsx>{`

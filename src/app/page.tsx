@@ -16,16 +16,9 @@ export default async function Home() {
 
   return (
     <main className="">
-<<<<<<< HEAD
-      <Hero />
-      <FeaturedProduct />
-      <FeaturedProduct2 />
-      <CountdownComponent />
-=======
       <HeroSlider slider={slider} />
       <FeaturedProducts/>
       <CountdownComponent deals={dealSlider} />
->>>>>>> work
       <VideoComponent />
       <BlogComponent />
       <SubscribeComponent />
