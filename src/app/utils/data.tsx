@@ -50,8 +50,10 @@ export const blogLinks = [
 
 export const products = [
   {
+    id: 1,
     image: "/product1.webp",
     sold: 90,
+    description: "this is product 1",
     available: 100,
     name: "Product 1",
     price: 110.0,
@@ -73,7 +75,9 @@ export const products = [
   {
     image: "/product2.webp",
     sold: 10,
+    id: 2,
     available: 50,
+    description: "this is product 2",
     name: "Product 2",
     price: 110.0,
     weight: 300,
@@ -94,8 +98,10 @@ export const products = [
   {
     image: "/product3.webp",
     sold: 25,
+    id: 3,
     available: 50,
     name: "Product 3",
+    description: "this is product 3",
     price: 110.0,
     weight: 300,
     colors: 3,
@@ -116,7 +122,9 @@ export const products = [
   {
     image: "/product4.webp",
     sold: 23,
+    id: 4,
     available: 50,
+    description: "this is product 4",
     name: "Product 4",
     price: 110.0,
     weight: 300,
@@ -140,9 +148,11 @@ export const products = [
     sold: 42,
     available: 50,
     name: "Product 5",
+    description: "this is product 5",
     price: 110.0,
     weight: 300,
     colors: 3,
+    id: 5,
     discountedPrice: 130.0,
     variations: [
       { 

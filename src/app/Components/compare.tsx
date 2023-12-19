@@ -16,7 +16,7 @@ const CompareProducts: React.FC<CompareProductsProps> = ({ myproducts }) => {
         <p className="text-black">/</p>
         <p className="text-black">YOUR COMPARE PAGE</p>
       </div>
-      <div className="m-20">
+      <div className="m-20 md:max-w-max max-w-sm">
         <table className="table-auto w-full border-collapse">
           <thead>
             <tr>

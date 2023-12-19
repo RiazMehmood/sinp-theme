@@ -21,7 +21,7 @@ export default function FeaturedProductLeft(props:{product:HeroImage}) {
       <div className="w-full flex-col justify-start md:w-1/2 space-y-10">
         <h2 className="text-xl">{props.product.topText}</h2>
         <div className={playfair.className}>
-        <h1 className="text-5xl font-semibold text-orange-500 w-2/3">{props.product.heading}</h1></div>
+        <h1 className="text-5xl font-semibold text-[#fc6539] w-2/3">{props.product.heading}</h1></div>
         <p className='text-xl text-gray-800 w-2/3'>{props.product.detail}</p>
         <button className="bg-[#06264b] text-[#fc6539] hover:bg-[#fc6539] hover:text-white rounded-full text-xl font-semibold py-4 px-10">
           {props.product.button}

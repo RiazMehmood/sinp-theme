@@ -4,8 +4,10 @@ export interface Variation {
 }
 
 export interface Product {
+    id: number | null | undefined | string;
     image?: string;
     sold?: number;
+    description?: string;
     available?: number;
     name?: string;
     weight?: number | string;
