@@ -55,7 +55,9 @@ export const products = [
     available: 100,
     name: "Product 1",
     price: 110.0,
+    weight: 500,
     discountedPrice: 130.0,
+    colors: 3,
     variations: [
       { 
         type: "variety", 
@@ -74,6 +76,8 @@ export const products = [
     available: 50,
     name: "Product 2",
     price: 110.0,
+    weight: 300,
+    colors: 3,
     discountedPrice: 130.0,
     variations: [
       { 
@@ -93,6 +97,8 @@ export const products = [
     available: 50,
     name: "Product 3",
     price: 110.0,
+    weight: 300,
+    colors: 3,
     discountedPrice: 130.0,
     variations: [
       { 
@@ -113,6 +119,8 @@ export const products = [
     available: 50,
     name: "Product 4",
     price: 110.0,
+    weight: 300,
+    colors: 3,
     discountedPrice: 130.0,
     variations: [
       { 
@@ -133,6 +141,8 @@ export const products = [
     available: 50,
     name: "Product 5",
     price: 110.0,
+    weight: 300,
+    colors: 3,
     discountedPrice: 130.0,
     variations: [
       { 

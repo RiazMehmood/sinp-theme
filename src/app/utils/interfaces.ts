@@ -4,13 +4,15 @@ export interface Variation {
 }
 
 export interface Product {
-    image: string;
-    sold: number;
-    available: number;
-    name: string;
-    price: number;
-    discountedPrice: number;
-    variations: Variation[];
+    image?: string;
+    sold?: number;
+    available?: number;
+    name?: string;
+    weight?: number | string;
+    colors?: number;
+    price?: number;
+    discountedPrice?: number;
+    variations?: Variation[];
   }
   
  export interface Title {
