@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Footer from "./Components/footer";
 import Navbar from "./Components/navbar";
+import SubscribeComponent from "./Components/subscribe";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className=" {poppins.className} bg-white text-dark">
         <Navbar />
         {children}
+        <SubscribeComponent/>
         <Footer />
       </body>
     </html>

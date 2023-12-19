@@ -21,7 +21,6 @@ export default async function Home() {
       <CountdownComponent deals={dealSlider} />
       <VideoComponent />
       <BlogComponent />
-      <SubscribeComponent />
     </main>
   );
 }
