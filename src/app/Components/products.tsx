@@ -61,7 +61,7 @@ export default function ProductBox({ product }: { product: DealProduct }) {
                 <span className="tooltiptext">Quick View</span>
               </div>
               <div className="tooltip">
-                <button className="hover:text-[#fc6539]">
+                <button className="hover:text-[#fc6539]" onClick={() => window.location.href = "/wishlist"}>
                   <LiaHeart />
                 </button>
                 <span className="tooltiptext">Add to wishlist</span>

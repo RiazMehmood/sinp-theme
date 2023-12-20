@@ -4,7 +4,7 @@ export interface Variation {
 }
 
 export interface Product {
-    id: number | null | undefined | string;
+    id: number;
     image?: string;
     sold?: number;
     description?: string;
@@ -12,7 +12,7 @@ export interface Product {
     name?: string;
     weight?: number | string;
     colors?: number;
-    price?: number;
+    price: number;
     discountedPrice?: number;
     variations?: Variation[];
   }

@@ -30,7 +30,7 @@ const CompareProducts: React.FC<CompareProductsProps> = ({ myproducts }) => {
                       className="w-36 h-44 justify-center"
                     />
                     <p>{product.name}</p>
-                    <button className="bg-black duration-200 text-white hover:bg-[#fc6539] p-2 mb-1">
+                    <button className="bg-black duration-200 text-white hover:bg-[#fc6539] py-2 px-3 mb-1">
                       Add to Cart
                     </button>
                   </div>
