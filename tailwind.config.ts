@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors:{
         pri_black: "#1f2226",
+        pri_orange: "#fc6539",
       }
       ,
       screens: {

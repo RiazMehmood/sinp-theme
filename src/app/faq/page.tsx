@@ -38,7 +38,7 @@ function Page() {
     <main className="min-h-screen flex flex-col w-full justify-center items-center text-pri_black mt-44 mb-10">
       <Wrapper className="max-w-[1200px] flex flex-col gap-y-10 px-5">
         <div className="w-full flex justify-center font-medium gap-x-2">
-        <Link href={"/"} className="hover:text-orange-500">Home</Link>/
+        <Link href={"/"} className="hover:text-orange-500">HOME</Link>/
         <p>FAQ</p>
         </div>
         <section className="w-full flex flex-col gap-y-4 mt-24">
