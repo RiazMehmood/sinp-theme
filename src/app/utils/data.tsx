@@ -26,7 +26,7 @@ export const productTypesLinks = [
 ];
 
 export const pagesLinks = [
-  { label: "About Page", href: "about-us" },
+  { label: "About Page", href: "about" },
   { label: "Cart Page", href: "cart" },
   { label: "Checkout Page", href: "checkout" },
   { label: "Compare Page", href: "compare" },

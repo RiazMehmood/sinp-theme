@@ -15,13 +15,13 @@ export default async function Home() {
 
 
   return (
-    <main className="">
+    <div>
       <HeroSlider slider={slider} />
       <FeaturedProducts/>
       <CountdownComponent deals={dealSlider} />
       <VideoComponent />
       <BlogComponent />
       <SubscribeComponent />
-    </main>
+    </div>
   );
 }
