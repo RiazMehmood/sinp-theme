@@ -61,13 +61,13 @@ export default function ProductBox({ product }: { product: DealProduct }) {
                 <span className="tooltiptext">Quick View</span>
               </div>
               <div className="tooltip">
-                <button className="hover:text-[#fc6539]">
+                <button className="hover:text-[#fc6539]" onClick={() => window.location.href = "/wishlist"}>
                   <LiaHeart />
                 </button>
                 <span className="tooltiptext">Add to wishlist</span>
               </div>
               <div className="tooltip">
-                <button className="hover:text-[#fc6539]">
+                <button className="hover:text-[#fc6539]"  onClick={() => window.location.href = "/compare"}>
                   <SlRefresh />
                 </button>
                 <span className="tooltiptext">Compare</span>
@@ -112,7 +112,7 @@ export default function ProductBox({ product }: { product: DealProduct }) {
           </div>
           <div>
             Available:{" "}
-            <span className="text-orange-500 font-medium">
+            <span className="text-[#fc6539] font-medium">
               {product.currentInventory}
             </span>
           </div>
@@ -124,14 +124,14 @@ export default function ProductBox({ product }: { product: DealProduct }) {
           ></div>
         </div>
       </div>
-      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-orange-500 font-normal">
+      <h2 className="text-lg px-4 text-gray-800 cursor-pointer hover:text-[#fc6539] font-normal">
         {product.title}
       </h2>
       <div className="flex px-4 gap-1 pb-4">
-        <p className="mt-2 text-orange-500 line-through">
+        <p className="mt-2 text-[#fc6539] line-through">
           ${product.actualPrice}
         </p>
-        <p className="mt-2 text-orange-500 font-bold text-lg">
+        <p className="mt-2 text-[#fc6539] font-bold text-lg">
           ${product.discountedPrice}
         </p>
       </div>
