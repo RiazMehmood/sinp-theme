@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors:{
+        pri_black: "#1f2226",
+        pri_orange: "#fc6539",
+      }
+      ,
       screens: {
         "3xs": "320px", //Mobile S
         "2xs": "375px", //Mobile M
